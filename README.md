@@ -12,17 +12,18 @@ Revised code for my ALA article — Accessibility: The Missing Ingredient
 
 - changed:
   `role="list"` ==> `role="menu"`
+and
   `role="listitem"` ==> `role="menuitem"`
 
   At first I tried Marco Zehe's suggestion (http://alistapart.com/comments/accessibility-the-missing-ingredient#336966) and attempted to use role="listbox" with role="option" for each section. This played well everywhere (almost). The best part was I could remove role="application" completely. However, in VoiceOver, items could not be added to the cart at all. This was obvoiusly a deal-breaker. The "add to cart" button seemed to not even exist within each listbox option. This sort of makes sense since, in HTML, you can't do anything to a select option other than select it. I believe this is why the children of role="option" did not count in VO are were not focusable/selectable/clickable. The best workaround I could find was to reintroduce the application role around the menu/menuitem structure.
 ```javascript
   <div role="application">
     <div id="product_sections" role="menu">
-      {{#products}}`
+      {{#products}}
         <section tabindex="-1" role="menuitem">
         ...
         </section>
-      {{/products}}`
+      {{/products}}
     </div>
   </div>
 ````
