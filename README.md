@@ -8,7 +8,7 @@ Revised code for my ALA article — Accessibility: The Missing Ingredient
 
   Non screen-readers still get the arrow navigation on load. In NVDA/Jaws, a user can now access the menu landmark and hit enter. After that, the up/down arrows move the user about the product list.
 
-- Kept role="dialog" for semantic reasons and made all <td>s tabbable.
+- Kept `role="dialog"` for semantic reasons and made all `<td>`s tabbable.
 
 - changed:
   `role="list"` ==> `role="menu"`
